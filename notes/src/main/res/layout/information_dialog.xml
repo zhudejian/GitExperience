@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="About"
+    android:background="#00B5B5"
+    android:gravity="center_horizontal"
+    android:textSize="35sp"
+    android:id="@+id/tv_information_dialog_title"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="About"
+        android:background="#ffffff"
+        android:minHeight="200dp"
+        android:textSize="20sp"
+        android:id="@+id/tv_information_dialog_body"/>
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:background="#FFA5A8AC"/>
+
+    <Button
+        android:id="@+id/bt_information_dialog_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:background="@drawable/button_selector"
+        android:textSize="35sp"/>
+</LinearLayout>
