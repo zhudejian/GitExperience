@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 
 import com.example.Bean.NotesBean;
 import com.example.Constans.Contants;
@@ -40,8 +41,9 @@ public class tableNote {
       return resolver.delete(Contants.URI.URI_DELETE_NOTES, where, zhanwei);
 
     }
-    public NotesBean GetNotesBeanById(ContentResolver resolver,long id){
-       Cursor cursor= resolver.query(Contants.URI.URI_QUERY_NOTES,null,"_id = "+id,null,null);
+    public static  NotesBean GetNotesBeanById(ContentResolver resolver,long id){
+        //String[] projections = {"_id", "title", "content", "last_reviewed", "total_reviews"};
+       Cursor cursor= resolver.query(Contants.URI.URI_QUERY_NOTES,null,"_id ="+id,null,null);
         NotesBean bean=null;
         if( cursor.moveToFirst())
        {

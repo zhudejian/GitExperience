@@ -1,6 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0EEEE"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:background="#00B5B5"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        >
+        <TextView
+            android:id="@+id/activity_notes_detail_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+              android:drawableLeft="@mipmap/btn_back_normal"
+            android:text="Note"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="28sp"/>
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/activity_notes_detail_title"
+        android:layout_width="fill_parent"
+        android:text="Title"
+        android:textSize="20dp"
+        android:padding="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:maxLines="1"
+        android:maxLength="50"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#CCC" />
+
+
+        <EditText
+            android:id="@+id/activity_notes_detail_content"
+            android:layout_width="fill_parent"
+            android:text="Content goes here which will be a lot"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="确定"
+        android:padding="5dp"
+        android:textSize="35sp"
+        />
 
 </LinearLayout>

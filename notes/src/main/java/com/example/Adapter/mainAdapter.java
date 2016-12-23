@@ -2,6 +2,8 @@ package com.example.Adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.Bean.NotesBean;
 import com.example.notes.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by hasee on 2016/12/22.
@@ -27,9 +32,16 @@ public class mainAdapter extends CursorAdapter {
         mainHolder holder = GetmainHolder(view);
         NotesBean bean = NotesBean.GetNotesFromCursor(cursor);
         holder.tv_item_main_list_title.setText(bean.getTitle());
-        holder.tv_item_main_list_lastreviewed.setText(bean.getLast_reviewed());
+
         holder.tv_item_main_list_body.setText(bean.getContent());
-        holder.tv_item_main_list_total_reviews.setText(bean.getTotal_reviews());
+        holder.tv_item_main_list_total_reviews.setText("总浏览次数："+bean.getTotal_reviews());
+        //DateUtils.formatDateTime(context,Long.parseLong(bean.getLast_reviewed(),);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+       String ll= formatter.format(Long.parseLong(bean.getLast_reviewed()));
+
+        holder.tv_item_main_list_lastreviewed.setText("上次编辑于:"+ll);
+       // Date date = new Date();
+        //long time=date.getTime()-Long.parseLong(bean.getLast_reviewed());
 
 
     }

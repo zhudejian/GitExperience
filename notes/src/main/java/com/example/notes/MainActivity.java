@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
     private ImageView img_main_newtext;
     private ListView activity_main_list;
     private mainAdapter adapter;
-    public  Handler handler = new Handler() {
+    public Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -146,15 +146,15 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Cursor cursor = (Cursor) adapter.getItem(position);
-                final  NotesBean bean =NotesBean.GetNotesFromCursor(cursor);
+                final NotesBean bean = NotesBean.GetNotesFromCursor(cursor);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("要删除"+bean.getTitle()+"么?");
+                builder.setMessage("要删除" + bean.getTitle() + "么?");
                 builder.setTitle("删除日记");
                 builder.setCancelable(false);
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        tableNote.DeletNote(MainActivity.this.getContentResolver(),"_id = "+bean.getId(),null);
+                        tableNote.DeletNote(MainActivity.this.getContentResolver(), "_id = " + bean.getId(), null);
                         adapter.notifyDataSetChanged();
 
                     }
@@ -172,9 +172,11 @@ public class MainActivity extends BaseActivity {
         activity_main_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               Cursor cursor= (Cursor) adapter.getItem(i);
+                Cursor cursor = (Cursor) adapter.getItem(i);
                 NotesBean bean = NotesBean.GetNotesFromCursor(cursor);
-
+                Intent intent = new Intent(MainActivity.this, NoteDetailActivity.class);
+                intent.putExtra("_id", bean.getId());
+                startActivity(intent);
             }
         });
     }
@@ -184,25 +186,24 @@ public class MainActivity extends BaseActivity {
 
         adapter = new mainAdapter(this, null, true);
         String[] projections = {"_id", "title", "content", "last_reviewed", "total_reviews"};
-       // Cursor cursor = tableNote.QueryNotes(getContentResolver(), projections, null, null, null);
-       // adapter.changeCursor(cursor);
+        // Cursor cursor = tableNote.QueryNotes(getContentResolver(), projections, null, null, null);
+        // adapter.changeCursor(cursor);
 
-       //SimpleQuery query = new SimpleQuery(getContentResolver());
-        AsyncQueryHandler handler = new AsyncQueryHandler(getContentResolver()){
+        //SimpleQuery query = new SimpleQuery(getContentResolver());
+        AsyncQueryHandler handler = new AsyncQueryHandler(getContentResolver()) {
             @Override
             protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
                 super.onQueryComplete(token, cookie, cursor);
-                if (cookie!=null&&cookie instanceof CursorAdapter)
-                {
+                if (cookie != null && cookie instanceof CursorAdapter) {
 
                     ((CursorAdapter) cookie).changeCursor(cursor);
 
                 }
-                if (cursor.getCount()<=0)
+                if (cursor.getCount() <= 0)
                     tips.setVisibility(View.VISIBLE);
             }
         };
-       handler.startQuery(0,adapter, Contants.URI.URI_QUERY_NOTES,projections,null,null,null);
+        handler.startQuery(0, adapter, Contants.URI.URI_QUERY_NOTES, projections, null, null, null);
 
 
         activity_main_list.setAdapter(adapter);

@@ -15,6 +15,7 @@
             android:name="contentprovider.NotesProvider"
             android:authorities="com.example.notes"
             android:exported="true"/>
+        <activity android:name="com.example.notes.NoteDetailActivity"></activity>
     </application>
 
 </manifest>
