@@ -16,6 +16,7 @@
             android:authorities="com.example.notes"
             android:exported="true"/>
         <activity android:name="com.example.notes.NoteDetailActivity"></activity>
+        <activity android:name="com.example.notes.NewNoteActivity"></activity>
     </application>
 
 </manifest>

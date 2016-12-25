@@ -12,19 +12,19 @@
         android:layout_height="35dp"
         >
         <TextView
-            android:id="@+id/activity_notes_detail_back"
+            android:id="@+id/activity_new_note_back"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
               android:drawableLeft="@mipmap/btn_back_normal"
-            android:text="Note"
+            android:text="Add Note"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:textSize="28sp"/>
     </RelativeLayout>
     <EditText
-        android:id="@+id/activity_notes_detail_title"
+        android:id="@+id/activity_new_note_title"
         android:layout_width="fill_parent"
-        android:text="Title"
+
         android:textSize="20dp"
         android:padding="5dp"
         android:paddingLeft="10dp"
@@ -32,6 +32,7 @@
         android:paddingTop="5dp"
         android:maxLines="1"
         android:maxLength="50"
+        android:hint="请输入标题"
         android:layout_height="wrap_content" />
     <View
         android:layout_width="match_parent"
@@ -40,16 +41,17 @@
 
 
         <EditText
-            android:id="@+id/activity_notes_detail_content"
+            android:id="@+id/activity_new_note_content"
             android:layout_width="fill_parent"
-            android:text="Content goes here which will be a lot"
+
             android:textSize="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
+            android:hint="请输入内容"
             android:layout_height="wrap_content" />
     <Button
-        android:id="@+id/activity_notes_detail_save"
+        android:id="@+id/activity_new_note_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

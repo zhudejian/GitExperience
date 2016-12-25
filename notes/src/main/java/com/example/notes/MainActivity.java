@@ -65,7 +65,21 @@ public class MainActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.img_main_about:
                 startInformation();
+                break;
+            case  R.id.img_main_newtext:
+                Intent intent = new Intent(this,NewNoteActivity.class);
+               // startActivity(intent);
+                int MainCode=0;
+                 startActivityForResult(intent,0);
+                break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (adapter.getCount()>0)
+            tips.setVisibility(View.GONE);
     }
 
     /**
@@ -110,13 +124,13 @@ public class MainActivity extends BaseActivity {
                 view.getLocationInWindow(a);
                 toast.setGravity(Gravity.TOP | Gravity.LEFT, a[0], a[1]);
                 toast.show();
-                ContentResolver resolver = MainActivity.this.getContentResolver();
-                ContentValues values = new ContentValues();
-                values.put("title", "我是");
-                values.put("content", "asdajksdhasfhjkafshhakjfhkja");
-                values.put("last_reviewed", "10000000000000000");
-                values.put("total_reviews", 1);
-                tableNote.InsertValues(resolver, values);
+//                ContentResolver resolver = MainActivity.this.getContentResolver();
+//                ContentValues values = new ContentValues();
+//                values.put("title", "我是");
+//                values.put("content", "asdajksdhasfhjkafshhakjfhkja");
+//                values.put("last_reviewed", "10000000000000000");
+//                values.put("total_reviews", 1);
+//                tableNote.InsertValues(resolver, values);
 //                String[] projections = {"_id","title","content","last_reviewed","total_reviews"};
 //               Cursor cursor= tableNote.QueryNotes(resolver,projections,null,null,null);
 //

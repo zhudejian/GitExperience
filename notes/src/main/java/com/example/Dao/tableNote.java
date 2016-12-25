@@ -53,4 +53,11 @@ public class tableNote {
         cursor.close();
         return bean;
     }
+    public  static  int upDateNote(ContentResolver resolver,ContentValues values,String where )
+    {
+        return  resolver.update(Contants.URI.URI_UPDATE_NOTES,values,where,null);
+    }
+    public static  Uri saveNewNote(ContentResolver resolver,ContentValues values){
+        return  resolver.insert(Contants.URI.URI_INSERT_NOTES,values);
+    }
 }
